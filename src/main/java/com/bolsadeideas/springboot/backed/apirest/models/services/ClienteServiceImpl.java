@@ -32,17 +32,19 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	@Transactional
 	public Cliente save(Cliente cliente) {
-		// TODO Auto-generated method stub
 		return clienteDao.save(cliente);
 	}
-
+	
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
 		clienteDao.deleteById(id);
 	}
-	
-	
 
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Cliente> findByNombre(String nombre) {
+		return clienteDao.findByNombre(nombre);
+	}
 }
